@@ -1,0 +1,39 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "output": "console"
+  },
+  "inbounds": [
+    {
+      "type": "vless",
+      "listen": "::",
+      "listen_port": 443,
+      "users": [
+        {
+          "uuid": "11111111-1111-1111-1111-111111111111",
+          "flow": "xtls-rprx-vision",
+          "email": "user@example.com"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "www.cloudflare.com",
+            "server_port": 443
+          },
+          "private_key": "REPLACE_WITH_PRIVATE_KEY",
+          "short_id": ["12345678"]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct"
+    }
+  ]
+}
